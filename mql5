@@ -1,0 +1,60 @@
+
+// Developer: Forex Robot Easy Team
+// Developer's site: forexroboteasy.com
+
+// MMTrade Software
+// Lot Calculation Algorithm
+
+// Function to calculate lot based on stop loss
+double calculateLot(double stopLoss) {
+    double accountBalance = AccountInfoDouble(ACCOUNT_BALANCE);
+    double riskPercentage = 0.02; // Risk percentage can be adjusted as per requirements
+    double riskAmount = accountBalance * riskPercentage;
+    double pointValue = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_VALUE);
+    double stopLossPoints = stopLoss * pointValue;
+    
+    double lotSize = NormalizeDouble(riskAmount / stopLossPoints, 2);
+    return lotSize;
+}
+
+// Function to set limit order price level
+void setLimitOrderPriceLevel() {
+    // Add code for setting limit order price level
+}
+
+// Function to specify key '2' functionality
+void key2Functionality() {
+    // Add code for key '2' functionality
+}
+
+// Function to specify additional hotkey functionalities
+void additionalHotKeyFunctionalities() {
+    // Add code for additional hotkey functionalities
+}
+
+// Function to execute trading
+void executeTrading() {
+    // Add code for executing trading based on lot calculation and hotkey functionalities
+}
+
+// Main function
+void OnStart() {
+    // Call lot calculation function
+    double stopLoss = 50.0; // Set stop loss value
+    double lotSize = calculateLot(stopLoss);
+    
+    // Display lot size
+    Print('Lot Size: ', lotSize);
+    
+    // Call set limit order price level function
+    setLimitOrderPriceLevel();
+    
+    // Call key '2' functionality
+    key2Functionality();
+    
+    // Call additional hotkey functionalities
+    additionalHotKeyFunctionalities();
+    
+    // Execute trading
+    executeTrading();
+}
